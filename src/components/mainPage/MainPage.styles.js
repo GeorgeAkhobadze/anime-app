@@ -71,9 +71,3 @@ export const StyledArticleHeader = styled.h3`
   color: #fcfcfc;
   font-family: "Roboto";
 `;
-
-export const StyledContainer = styled.div.attrs(() => ({
-  className: "container",
-}))`
-  padding: ${(props) => (props.padding ? `${props.padding};` : "60px 0px;")};
-`;

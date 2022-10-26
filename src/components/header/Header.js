@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import styled from "styled-components";
 import logo from "../assets/logo.svg";
 import searchIcon from "../assets/search-icon.svg";
@@ -41,6 +42,7 @@ const StyledHeader = styled.div.attrs(() => ({
 
   .header-logo {
     width: 150px;
+    cursor: pointer;
   }
   .search-input--container {
     display: flex;
@@ -86,17 +88,28 @@ const StyledHeaderButton = styled.button`
 `;
 
 const Header = () => {
+  const navigate = useNavigate();
+
   return (
     <StyledHeader>
-      <img className="header-logo" src={logo} />
+      <img
+        className="header-logo"
+        src={logo}
+        onClick={() => navigate("/animes")}
+      />
       <div className="header-navigation-section">
         <ul className="header-nav-list">
-          <li className="header-nav-list__item">Home</li>
+          <li
+            className="header-nav-list__item"
+            onClick={() => navigate("/animes")}
+          >
+            Home
+          </li>
           <li className="header-nav-list__item">Characters</li>
           <li className="header-nav-list__item">About</li>
         </ul>
         <div className="search-input--container">
-          <input class="search-input" type="text" placeholder="Search..." />
+          <input className="search-input" type="text" placeholder="Search..." />
           <img className="search-icon" src={searchIcon} alt="Search" />
         </div>
 
